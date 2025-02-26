@@ -18,7 +18,7 @@ import ComingSoon from "./components/ComingSoon"; // Import Coming Soon Page
 import Footer from "./components/Footer";
 import SingleDesigns from "./components/SingleDesigns";
 import TwoDesigns from "./components/TwoDesigns";
-import DMCComponent from "./components/DmcComponent";
+import SingleDmcT from "./components/SingleDmcT";
 
 const App = () => {
   const [students, setStudents] = useState(() => {
@@ -43,59 +43,21 @@ const App = () => {
       {/* Navbar is rendered outside the Routes to appear on all pages */}
       <Navbar />
       <Routes>
-        <Route
-          path="/"
-          element={
-            localStorage.getItem("token") ? <Home /> : <Navigate to="/login" />
-          }
-        />
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route
           path="/upload"
-          element={
-            localStorage.getItem("token") ? (
-              <Upload onDataFetched={handleDataFetched} />
-            ) : (
-              <Navigate to="/login" />
-            )
-          }
+          element={<Upload onDataFetched={handleDataFetched} />}
         />
         <Route path="/singledesign" element={<SingleDesigns />} />
         <Route path="/twodesign" element={<TwoDesigns />} />
-        <Route path="/kb" element={<DMCComponent students={students} />} />
+        <Route path="/kb" element={<SingleDmcT students={students} />} />
         <Route path="/it" element={<Dmc students={students} />} />
-        <Route
-          path="/dmcIntro"
-          element={
-            localStorage.getItem("token") ? (
-              <DmcIntro students={students} />
-            ) : (
-              <Navigate to="/login" />
-            )
-          }
-        />
-        <Route
-          path="/dmc"
-          element={
-            localStorage.getItem("token") ? (
-              <NewDmc students={students} />
-            ) : (
-              <Navigate to="/login" />
-            )
-          }
-        />
+        <Route path="/dmcIntro" element={<DmcIntro students={students} />} />
+        <Route path="/dmc" element={<NewDmc students={students} />} />
 
-        <Route
-          path="/newdmc"
-          element={
-            localStorage.getItem("token") ? (
-              <NewDmcLayout students={students} />
-            ) : (
-              <Navigate to="/login" />
-            )
-          }
-        />
+        <Route path="/newdmc" element={<NewDmcLayout students={students} />} />
         <Route path="*" element={<ComingSoon />} />
       </Routes>
       <Footer />
