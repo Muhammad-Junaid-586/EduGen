@@ -12,7 +12,7 @@ const app = express();
 
 
 
-app.use(cors({ origin: "https://edu-gen-frontend.vercel.app/", credentials: true })); // ✅ Allow frontend requests
+app.use(cors({ origin: "http://localhost:5173", credentials: true })); // ✅ Allow frontend requests
 
 
 // ✅ Parse JSON requests

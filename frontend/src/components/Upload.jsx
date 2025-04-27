@@ -7,7 +7,7 @@ const Upload = ({ onDataFetched }) => {
   const [file, setFile] = useState(null);
   const [schoolName, setSchoolName] = useState("");
   const [session, setSession] = useState("");
-  const [className, setClassName] = useState("");
+  const [className, setClassName] = useState("KG");
   const [subjects, setSubjects] = useState([]);
   const [selectedPaper, setSelectedPaper] = useState("");
   const [marks, setMarks] = useState("");
@@ -42,7 +42,7 @@ const Upload = ({ onDataFetched }) => {
     "General Science",
     "English",
     "Muthalia-Quran Hakeem",
-    "Nazria Quran Hakeem",
+    "Nazra",
     "Geography",
     "History",
     "Physics",
@@ -243,6 +243,7 @@ const Upload = ({ onDataFetched }) => {
               className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <option value="">Select Class</option>
+              <option value="KG">KG</option>
               {Array.from({ length: 12 }, (_, i) => (
                 <option key={i + 1} value={i + 1}>
                   {getOrdinalSuffix(i + 1)}
