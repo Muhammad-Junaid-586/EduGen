@@ -116,7 +116,8 @@ const Upload = ({ onDataFetched }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/uploadFiles",
+        // "http://localhost:5000/uploadFiles",
+        "https://edu-gen-frontend.vercel.app/uploadFiles",
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
