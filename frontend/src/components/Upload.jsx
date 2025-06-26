@@ -116,9 +116,13 @@ const Upload = ({ onDataFetched }) => {
     formData.append("examType", examType);
 
     try {
-      const response = await axios.post(`${backendUrl}/uploadFiles`, formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
+      const response = await axios.post(
+        "http://localhost:5000/uploadFiles",
+        formData,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+        }
+      );
 
       console.log("Upload Success:", response.data);
 
