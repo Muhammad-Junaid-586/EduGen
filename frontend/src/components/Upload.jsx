@@ -22,6 +22,7 @@ const Upload = ({ onDataFetched }) => {
   const [logo, setLogo] = useState(null);
   const [excel, setExcel] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const backendUrl = process.env.BACKEND_URL;
 
   const examTypes = [
     "Monthly Test",
@@ -115,13 +116,9 @@ const Upload = ({ onDataFetched }) => {
     formData.append("examType", examType);
 
     try {
-      const response = await axios.post(
-        "http://localhost:5000/uploadFiles",
-        formData,
-        {
-          headers: { "Content-Type": "multipart/form-data" },
-        }
-      );
+      const response = await axios.post(`${backendUrl}/uploadFiles`, formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
 
       console.log("Upload Success:", response.data);
 
